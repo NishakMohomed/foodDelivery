@@ -1,0 +1,73 @@
+[   {
+        "_id": {
+            "$oid": "614abe7db608ef47ca95e222"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614abff7b608ef47ca95e223"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac00fb608ef47ca95e224"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac021b608ef47ca95e225"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac031b608ef47ca95e226"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac043b608ef47ca95e227"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac055b608ef47ca95e228"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac065b608ef47ca95e229"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    },
+    {
+        "_id": {
+            "$oid": "614ac07eb608ef47ca95e22a"
+        },
+        "name": "Margherita",
+        "image": "dish-1.png",
+        "price": 250
+    }
+]

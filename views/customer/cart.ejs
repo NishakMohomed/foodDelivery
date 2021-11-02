@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>&#127829; Deen Bakers</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav_logo">Deen's</a>
+        </nav>
+    </header>
+    
+    <section class="cart-page">
+        <% if(session.cart) { %>
+        <table class="item-list">
+            <tr class="table_head">
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <% for(let item of Object.values(session.cart.items)) { %>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/images/products/<%= item.item.image %>">
+                        <div>
+                            <p><%= item.item.name %></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="quantity"><%= item.qty %> Pcs</td>
+                <td class="price">Rs. <%= item.item.price * item.qty %></td>
+            </tr>
+            <% } %>
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Total Amount</td>
+                    <td>Rs. <%= session.cart.totalPrice %></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <% if(user) { %>
+        
+        <div class="order-section">
+
+            <div class="order-section-top">
+
+                <div class="order-section-heading">
+                    <h3>Recipient Details</h3>
+                </div>
+
+            </div>
+
+            <div class="order-section-content">
+
+                <div class="order-form">
+                    <form action="/orders" method="POST">
+
+                        <% if(messages.error) { %>
+
+                            <span class="flash-warning"><%= messages.error %></span>
+        
+                        <% } %>
+
+                        <fieldset>
+    
+                            <select name="title" id="">
+                                <option value="Mr">Mr.</option>
+                                <option value="Ms">Mrs.</option>
+                                <option value="Miss">Miss.</option>
+                                <option value="Dr">Dr.</option>
+                            </select>
+                            <input type="text" name="fname" placeholder="First Name">
+                            <input type="text" name="lname" placeholder="Last Name"> <br>
+    
+                        </fieldset>
+    
+                        <fieldset>
+    
+                            <input type="tel" name="phone" placeholder="Phone No">
+                            <input type="email" name="email" placeholder="Email Address"> 
+                            <select name="orderType" id="">
+                                <option value="takeaway">Takeaway</option>
+                                <option value="delivery">Delivery</option>
+                            </select>
+    
+                        </fieldset>
+    
+                        <fieldset>
+    
+                            <textarea name="address" id="" placeholder="Address"></textarea> <br>
+    
+                        </fieldset>
+
+                        <div class="btn-order">
+
+                            <button class="button" type="submit">Place Order</button>    
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <% } else { %>
+
+            <div class="btn-order">
+
+                <a href="/login" class="button">Login to continue</a>
+
+            </div>
+
+            <% } %>
+
+
+        <% } else { %>
+
+        <div class="empty-cart">
+            <h3>No items in the cart</h3>
+            <svg class="empty-cart-svg" id="b21613c9-2bf0-4d37-bef0-3b193d34fc5d" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="647.63626" height="632.17383" viewBox="0 0 647.63626 632.17383">
+                <path d="M687.3279,276.08691H512.81813a15.01828,15.01828,0,0,0-15,15v387.85l-2,.61005-42.81006,13.11a8.00676,8.00676,0,0,1-9.98974-5.31L315.678,271.39691a8.00313,8.00313,
+                0,0,1,5.31006-9.99l65.97022-20.2,191.25-58.54,65.96972-20.2a7.98927,7.98927,0,0,1,9.99024,5.3l32.5498,106.32Z" transform="translate(-276.18187 -133.91309)" fill="#f2f2f2"/>
+                <path d="M725.408,274.08691l-39.23-128.14a16.99368,16.99368,0,0,0-21.23-11.28l-92.75,28.39L380.95827,221.60693l-92.75,28.4a17.0152,17.0152,0,0,0-11.28028,21.23l134.08008,
+                437.93a17.02661,17.02661,0,0,0,16.26026,12.03,16.78926,16.78926,0,0,0,4.96972-.75l63.58008-19.46,2-.62v-2.09l-2,.61-64.16992,19.65a15.01489,15.01489,0,0,1-18.73-9.95l-134.06983-437.94a14.97935,14.97935,
+                0,0,1,9.94971-18.73l92.75-28.4,191.24024-58.54,92.75-28.4a15.15551,15.15551,0,0,1,4.40966-.66,15.01461,15.01461,0,0,1,14.32032,10.61l39.0498,127.56.62012,2h2.08008Z" transform="translate(-276.18187 -133.91309)" fill="#3f3d56"/>
+                <path d="M398.86279,261.73389a9.0157,9.0157,0,0,1-8.61133-6.3667l-12.88037-42.07178a8.99884,8.99884,0,0,1,5.9712-11.24023l175.939-53.86377a9.00867,9.00867,0,0,1,11.24072,5.9707l12.88037,42.07227a9.01029,9.01029,0,0,1-5.9707,
+                11.24072L401.49219,261.33887A8.976,8.976,0,0,1,398.86279,261.73389Z" transform="translate(-276.18187 -133.91309)" fill="#fdcb35"/><circle cx="190.15351" cy="24.95465" r="20" fill="#fdcb35"/><circle cx="190.15351" cy="24.95465" r="12.66462" fill="#fff"/>
+                <path d="M878.81836,716.08691h-338a8.50981,8.50981,0,0,1-8.5-8.5v-405a8.50951,8.50951,0,0,1,8.5-8.5h338a8.50982,8.50982,0,0,1,8.5,8.5v405A8.51013,8.51013,0,0,1,878.81836,716.08691Z" transform="translate(-276.18187 -133.91309)" fill="#e6e6e6"/>
+                <path d="M723.31813,274.08691h-210.5a17.02411,17.02411,0,0,0-17,17v407.8l2-.61v-407.19a15.01828,15.01828,0,0,1,15-15H723.93825Zm183.5,0h-394a17.02411,17.02411,0,0,0-17,17v458a17.0241,17.0241,0,0,0,17,17h394a17.0241,17.0241,0,0,0,17-17v-458A17.02411,
+                17.02411,0,0,0,906.81813,274.08691Zm15,475a15.01828,15.01828,0,0,1-15,15h-394a15.01828,15.01828,0,0,1-15-15v-458a15.01828,15.01828,0,0,1,15-15h394a15.01828,15.01828,0,0,1,15,15Z" transform="translate(-276.18187 -133.91309)" fill="#3f3d56"/>
+                <path d="M801.81836,318.08691h-184a9.01015,9.01015,0,0,1-9-9v-44a9.01016,9.01016,0,0,1,9-9h184a9.01016,9.01016,0,0,1,9,9v44A9.01015,9.01015,0,0,1,801.81836,318.08691Z" transform="translate(-276.18187 -133.91309)" fill="#fdcb35"/>
+                <circle cx="433.63626" cy="105.17383" r="20" fill="#fdcb35"/><circle cx="433.63626" cy="105.17383" r="12.18187" fill="#fff"/>
+            </svg>
+        </div>
+
+        <% } %>
+    </section>
+
+    <footer class="footer section">
+        <div class="footer_container container grid">
+            <div class="footer_content">
+                <a href="#" class="footer_logo">Deen Bakers&reg;</a>
+                <p class="footer_description">Order Products Faster <br> Easier</p>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Services</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Pricing</a></li>
+                    <li><a href="#" class="footer_link">Discounts</a></li>
+                    <li><a href="#" class="footer_link">Report a bug</a></li>
+                    <li><a href="#" class="footer_link">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Company</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Blog</a></li>
+                    <li><a href="#" class="footer_link">Our mission</a></li>
+                    <li><a href="#" class="footer_link">Get in touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Community</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Support</a></li>
+                    <li><a href="#" class="footer_link">Questions</a></li>
+                    <li><a href="#" class="footer_link">Customer help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_social">
+                <a href="" class="footer_social-link"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-twitter'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-instagram-alt'></i></a>
+            </div>
+        </div>
+
+        <p class="footer_copy">&#169; Deen Bakers All right reserved</p>
+    </footer>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>&#127829; Deen Bakers</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav_logo">Deen's</a>
+        </nav>
+    </header>
+    
+    <section class="cart-page">
+
+        <div class="table-title">
+            <h3>All orders</h3>
+        </div>
+
+        <% if(messages.success) { %>
+
+        <div class="success-alert" id="success_alert">
+            <span><i class='bx bx-info-circle'></i><%= messages.success %></span>
+        </div>
+
+        <% } %>
+
+        <table class="item-list">
+            <tr class="table_head">
+                <th>Orders</th>
+                <th>Address</th>
+                <th>Time</th>
+            </tr>
+
+            <% if(orders.length) { %>
+                <% orders.forEach((order) => { %>
+
+                    <tr>
+                        <td> <a href="/viewOrders/orderStatus/<%= order._id %>"><%= order._id %></a></td>
+                        <td class="quantity"><%= order.address %></td>
+                        <td class="price"><%= moment(order.createdAt).format('hh:mm A') %></td>
+                    </tr>
+
+                <% }); %>
+            
+            <% } else {%>
+
+                <tr>
+                    <td>No orders found!</td>
+                </tr>
+            <% } %>
+        </table>
+
+    </section>
+
+    <footer class="footer section">
+        <div class="footer_container container grid">
+            <div class="footer_content">
+                <a href="#" class="footer_logo">Deen Bakers&reg;</a>
+                <p class="footer_description">Order Products Faster <br> Easier</p>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Services</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Pricing</a></li>
+                    <li><a href="#" class="footer_link">Discounts</a></li>
+                    <li><a href="#" class="footer_link">Report a bug</a></li>
+                    <li><a href="#" class="footer_link">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Company</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Blog</a></li>
+                    <li><a href="#" class="footer_link">Our mission</a></li>
+                    <li><a href="#" class="footer_link">Get in touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Community</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Support</a></li>
+                    <li><a href="#" class="footer_link">Questions</a></li>
+                    <li><a href="#" class="footer_link">Customer help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_social">
+                <a href="" class="footer_social-link"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-twitter'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-instagram-alt'></i></a>
+            </div>
+        </div>
+
+        <p class="footer_copy">&#169; Deen Bakers All right reserved</p>
+    </footer>
+
+    <script>
+        const alertMsg = document.querySelector('#success_alert')
+        if(alertMsg){
+            setTimeout(() => {
+                alertMsg.remove()
+            }, 2000)
+        }
+    </script>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>

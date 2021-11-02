@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>&#127829; Deen Bakers</title>
+</head>
+<body>
+
+    <!-- sidebar -->
+
+    <section id="sidebar" class="hide">
+        <a href="#" class="brand">
+            <i class='bx bxs-cookie' style='color:#fdcb35'></i>
+            <span class="text">Deen's</span>
+        </a>
+
+        <ul class="side-menu top">
+            <li>
+                <a href="/admin/dashboard">
+                    <i class='bx bxs-tachometer'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/orders">
+                    <i class='bx bxs-cart' ></i>
+                    <span class="text">Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/products">
+                    <i class='bx bxs-package'></i>
+                    <span class="text">Products</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bar-chart-square'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bxs-store-alt'></i>
+                    <span class="text">Inventory</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/admin/employees">
+                    <i class='bx bxs-group' ></i>
+                    <span class="text">Employees</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+
+            <li>
+                <form id="logout" action="/logout" method="POST">
+                    <a href="#" class="logout" onclick="document.getElementById('logout').submit()">
+                        <i class='bx bxs-log-out'></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </form>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Content -->
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu'></i>
+
+            <a href="#" class="profile">
+                <img src="" alt="">
+            </a>
+        </nav>
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Employees</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Employees</a>
+                        </li>
+
+                        <li>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+
+                        <li>
+                            <a href="#" class="active">Home</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="/employees/addEmployee" class="btn-download">
+                    <i class='bx bx-plus-medical'></i>
+                    <span class="text">New</span>
+                </a>
+            </div>
+
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Employees</h3>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th>NIC</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% employee.forEach(function(employee) { %>
+                                <tr>
+                                    <td><img src="/images/employees/<%= employee.image %>" class="employee_img"></td>
+                                    <td>
+                                        <p><%= employee.fname %></p>
+                                        <p><%= employee.lname %></p>
+                                    </td>
+                                    <td><%= employee.gender %></td>
+                                    <td><%= employee.dob %></td>
+                                    <td><%= employee.nic %></td>
+                                    <td><%= employee.email %></td>
+                                    <td><%= employee.phone %></td>
+                                   
+
+                                    <td>
+                                        <a href="/employees/employeeUpdate/<%= employee._id %>" class="editBtn" data-employee="<%= JSON.stringify(employee) %>">
+                                            <i class='bx bxs-pencil'></i>
+                                        </a> 
+                                        <a href="/employees/employeeDelete/<%= employee._id %>" class="deleteBtn" data-items="<%= JSON.stringify(employee) %>">
+                                            <i class='bx bxs-trash-alt'></i>
+                                        </a>
+                                    </td>
+                                    
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script type="module" src="/js/addToOrders.js"></script>
+    
+</body>
+</html>

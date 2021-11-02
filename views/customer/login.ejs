@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/login.css">
+    <title>&#127829; Deen Bakers</title>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav_logo">Deen's</a>
+        </nav>
+    </header>
+
+    <div class="login-section">
+        
+        <div class="login-section-top">
+
+            <div class="login-section-heading">
+
+                <h3>Sign in or create an account</h3>
+
+            </div>
+            
+        </div>
+
+        <div class="login-section-content">
+
+            <div class="login-form">
+                <form action="/signin" method="POST">
+
+                    <% if(messages.error) { %>
+
+                        <span class="flash-warning"><%= messages.error %></span>
+    
+                    <% } %>
+                   
+                    <fieldset>
+
+                        <span class="form-heading-1">
+                            Account Details
+                        </span><br>
+
+                        <div class="account-security-input">
+
+                            <input type="email" name="email" id="" placeholder="Enter your email"><br>
+                            <input type="password" name="password" id="" placeholder="Enter your password"><br>
+
+                        </div>
+
+                    </fieldset>
+                    
+                    <fieldset>
+    
+                        <input type="checkbox" name="signin-checkbox" id="">
+                        <label for="signin-checkbox">Keep me signed in.</label><br>
+
+                    </fieldset>
+                    
+                    <div class="btn-signin">
+
+                        <input type="submit" value="Sign in">
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="join-section">
+
+            <div class="join-section-content">
+
+                <h3>Join Deen's&reg;</h3>
+
+                <p>
+                    Join Deen bakers&reg; to Know about initiatives,announcements<br> and product offers,make online orders and more.
+                </p>
+
+                <a href="/register">Join now</a>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <footer class="footer section">
+        <div class="footer_container container grid">
+            <div class="footer_content">
+                <a href="#" class="footer_logo">Deen Bakers&reg;</a>
+                <p class="footer_description">Order Products Faster <br> Easier</p>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Services</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Pricing</a></li>
+                    <li><a href="#" class="footer_link">Discounts</a></li>
+                    <li><a href="#" class="footer_link">Report a bug</a></li>
+                    <li><a href="#" class="footer_link">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Our Company</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Blog</a></li>
+                    <li><a href="#" class="footer_link">Our mission</a></li>
+                    <li><a href="#" class="footer_link">Get in touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_content">
+                <h3 class="footer_title">Community</h3>
+                <ul class="footer_links">
+                    <li><a href="#" class="footer_link">Support</a></li>
+                    <li><a href="#" class="footer_link">Questions</a></li>
+                    <li><a href="#" class="footer_link">Customer help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_social">
+                <a href="" class="footer_social-link"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-twitter'></i></a>
+                <a href="" class="footer_social-link"><i class='bx bxl-instagram-alt'></i></a>
+            </div>
+        </div>
+
+        <p class="footer_copy">&#169; Deen Bakers All right reserved</p>
+    </footer>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>
