@@ -63,8 +63,13 @@ window.addEventListener('scroll', scrollHeader)
 //Show scroll up
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
-    //when the scroll is higher than 560 viewport height, add the show-scroll class to the anchor tag with the scroll-top class
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    
+    if (!scrollUp) {
+        return; 
+    } else {
+        //when the scroll is higher than 560 viewport height, add the show-scroll class to the anchor tag with the scroll-top class
+        if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll');
+    }
 }
 window.addEventListener('scroll', scrollUp)
 
