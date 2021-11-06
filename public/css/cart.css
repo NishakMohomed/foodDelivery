@@ -386,6 +386,30 @@ input[type=text],input[type=tel],select{
     background-color: var(--first-color-alt);
 }
 
+/* --------------------Stripe element------ */
+
+.StripeElement{
+    box-sizing: border-box;
+    width: 66%;
+    padding: 0.7rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background-color: var(--input-color);
+    margin-top: 30px;
+}
+
+.StripeElement--focus{
+    border: 0.1rem solid var(--first-color);
+}
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill{
+    background-color: #fefde5 !important;
+}
+
 /* --------------------Footer------------- */
 
 .footer{
@@ -558,7 +582,8 @@ input[type=text],input[type=tel],select{
 
 @media screen and (max-width: 1186px) {
     .order-form form input[type=email],
-    input[type=text],input[type=tel],select{
+    input[type=text],input[type=tel],select,
+    .StripeElement{
         width: 100%;
     }
 }

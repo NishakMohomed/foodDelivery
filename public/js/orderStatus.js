@@ -1,5 +1,4 @@
 
-
 let statuses = document.querySelectorAll('.status_line');
 let hiddenInput = document.querySelector("#hiddenInput");
 let order = hiddenInput ? hiddenInput.value : null;

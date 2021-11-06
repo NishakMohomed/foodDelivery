@@ -31,6 +31,7 @@ export const initOrders = function () {
             return `<tr>
             <td>${ order.title}.${ order.fname}<br>${ order.lname}</td>
             <td>${ order.orderType}</td>
+            <td>${ order.paymentStatus ? 'paid' : 'not paid'}</td>
             
             <td>
                 <span class="status ${ order.status === 'delivered' ? 'completed' : 'pending'}">
