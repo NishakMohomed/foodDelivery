@@ -31,16 +31,20 @@ export const initOrders = function () {
             return `<tr>
             
             <td>
-                <p class= "order_id">${ order._id}</p>
-                <div>${ renderItems(order.items)}</div>
+                <div>
+                    <p class="order_id">${ order._id}</p><br>
+                    <div>${ renderItems(order.items)}</div>
+                </div>
             </td>
             <td>${ order.title}.${ order.fname}<br>${ order.lname}</td>
             <td>${ order.address}</td>
             <td>${ order.phone}</td>
             <td>${ order.orderType}</td>
+            <td>LKR ${ (order.amount / 100).toFixed(2) }</td>
             <td>
                 <form action="/orders/status" method="POST">
                     <input type="hidden" name="orderId" value="${ order._id}">
+                    <input type="hidden" name="orderType" value="${ order.orderType}">
                     <select name="status" onchange="this.form.submit()">
                         <option value="order_placed" ${ order.status === 'order_placed' ? 'selected' : ''}>Order Placed</option>
                         <option value="confirmed" ${ order.status === 'confirmed' ? 'selected' : ''}>Confirmed</option>

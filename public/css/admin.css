@@ -580,6 +580,13 @@ body{
 }
 
 
+/* ------------Chart--------------------- */
+.chart-container .chart {
+    position: relative;
+    width: 55vw;
+    height: 70vh;
+}
+
 /* ------------Media query--------------- */
 
 @media screen and (max-width: 768px) {

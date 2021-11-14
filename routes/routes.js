@@ -5,6 +5,7 @@ const cartController = require('../controllers/cartController');
 const orderController = require('../controllers/orderController');
 const adminController = require('../controllers/admin/adminController');
 const productController = require('../controllers/admin/productController');
+const analyticsController = require('../controllers/admin/analyticsController');
 const employeeControllerAdmin = require('../controllers/admin/employeeController');
 const statusController = require('../controllers/employee/statusController');
 const employeeController = require('../controllers/employee/employeeController');
@@ -64,6 +65,8 @@ function initRoutes(app) {
     app.post('/productUpdate/update/:id', upload.single('image'), adminAuth, productController().update);
 
     app.get('/products/productDelete/:id', adminAuth, productController().delete);
+
+    app.get('/admin/analytics', adminAuth, analyticsController().index);
 
     app.get('/admin/employees', adminAuth, employeeControllerAdmin().index);
 

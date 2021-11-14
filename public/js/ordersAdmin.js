@@ -31,13 +31,16 @@ export const initOrders = function () {
             return `<tr>
             
             <td>
-                <p class= "order_id">${ order._id}</p>
-                <div>${ renderItems(order.items)}</div>
+                <div>
+                    <p class= "order_id">${ order._id}</p><br>
+                    <div>${ renderItems(order.items)}</div>
+                </div>
             </td>
             <td>${ order.title}.${ order.fname}<br>${ order.lname}</td>
             <td>${ order.address}</td>
             <td>${ order.phone}</td>
             <td>${ order.orderType}</td>
+            <td>LKR ${ (order.price / 100).toFixed(2) }</td>
             <td>
                 <span class="status ${ order.status === 'delivered' ? 'completed' : 'pending'}">
                     ${ order.status === 'delivered' ? 'completed' : 'pending'}

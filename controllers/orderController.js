@@ -22,6 +22,7 @@ function orderController() {
                 phone,
                 email,
                 orderType,
+                price: req.session.cart.totalPrice,
                 address
             });
 
@@ -44,6 +45,7 @@ function orderController() {
                                 eventEmitter.emit('orderPlaced', ord);
                                 delete req.session.cart;
                                 return res.json({success : 'Payment successfull, Order placed successfully'});
+
                             }).catch((err) => {
                                 console.log(err);
                             });
@@ -53,8 +55,17 @@ function orderController() {
                             return res.json({success : 'Order placed but payment failed, You can pay at delivery time'});
                         })
                     } else {
-                        delete req.session.cart;
-                        return res.json({success : 'Order placed successfully'});
+
+                        placedOrder.save().then((ord) => {
+                            //Emit 
+                            const eventEmitter = req.app.get('eventEmitter');
+                            eventEmitter.emit('orderPlaced', ord);
+                            delete req.session.cart;
+                            return res.json({success : 'Order placed successfully'});
+
+                        }).catch((err) => {
+                            console.log(err);
+                        });
                     }
                 })
                 
