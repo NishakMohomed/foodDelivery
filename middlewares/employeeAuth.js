@@ -1,5 +1,5 @@
 function employeeAuth(req, res, next){
-    if(req.isAuthenticated() && req.user.role === 'employee'){
+    if(req.isAuthenticated() && req.user.role === 'cashier'){
         return next();
     }
 

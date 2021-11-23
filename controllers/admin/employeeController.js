@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 function employeeController(){
     return{
         index(req, res){
-            User.find({ role: 'employee'}, null, {sort: {'createdAt': -1}})
+            User.find({role: {$nin: ['admin','customer']}}, null, {sort: {'createdAt': -1}})
             .then(response => {
                 res.render('admin/employee', {employee: response});
             });
@@ -15,11 +15,11 @@ function employeeController(){
         },
         async store(req, res){
 
-            const {fname, lname, gender, dob, nic, email, address, password } = req.body;
+            const {fname, lname, gender, dob, nic, email, address, password, accType } = req.body;
             const image = req.file.filename;
 
             //Validation request
-            if(!fname || !lname || !gender || !dob || !nic || !image || !email || !address || !password) {
+            if(!fname || !lname || !gender || !dob || !nic || !image || !email || !address || !password || !accType) {
                 req.flash('error', 'All fields are required!');
                 req.flash('fname', fname);
                 req.flash('lname', lname);
@@ -60,7 +60,7 @@ function employeeController(){
                 phone: req.body.phone,
                 address: req.body.address,
                 password: hashedPassword,
-                role: 'employee'
+                role: req.body.accType
                 
             });
 
@@ -93,6 +93,10 @@ function employeeController(){
 
             if(req.body.gender){
                 updatedData.gender = req.body.gender
+            }
+
+            if(req.body.accType){
+                updatedData.role = req.body.accType
             }
 
             if(req.file){

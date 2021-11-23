@@ -134,6 +134,14 @@
                         <input type="text" name="nic" value="<%= emp.nic %>">
                         <span>Image</span><br>
                         <input type="file" name="image" id="image" ><br>
+                        <span>Account type</span><br>
+                        <select name="accType">
+                            <option value="">Select</option>
+                            <option value="cashier">Cashier</option>
+                            <option value="chef">Chef</option>
+                            <option value="waiter">Waiter</option>
+                            <option value="cleaner">Cleaner</option>
+                        </select>
                         <span>Email</span><br>
                         <input type="email" name="email" value="<%= emp.email %>">
                         <span>Phone</span><br>

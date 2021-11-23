@@ -118,6 +118,12 @@
             <div class="table-data">
                 <div class="addEmployee_form">
                     <form action="/addEmployee/new" method="POST" enctype="multipart/form-data">
+
+                        <% if(messages.error) { %>
+
+                            <span class="flash-warning"><%= messages.error %></span>
+        
+                            <% } %>
                     
                         <span>First name</span><br>
                         <input type="text" name="fname" required ><br>
@@ -135,6 +141,14 @@
                         <input type="text" name="nic" required>
                         <span>Image</span><br>
                         <input type="file" name="image" id="image" required><br>
+                        <span>Account type</span><br>
+                        <select name="accType">
+                            <option value="">Select</option>
+                            <option value="cashier">Cashier</option>
+                            <option value="chef">Chef</option>
+                            <option value="waiter">Waiter</option>
+                            <option value="cleaner">Cleaner</option>
+                        </select>
                         <span>Email</span><br>
                         <input type="email" name="email" required>
                         <span>Phone</span><br>

@@ -10,7 +10,7 @@ function authController() {
 
         if(req.user.role === 'admin'){
             return '/admin/dashboard';
-        } else if(req.user.role === 'employee'){
+        } else if(req.user.role === 'cashier'){
             return '/employee/dashboard';
         } else{
             return '/customer/viewOrders';
