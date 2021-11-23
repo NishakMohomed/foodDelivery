@@ -423,10 +423,6 @@ body.dark-theme{
     gap: 2.5rem;
 }
 
-.about_data{
-    text-align: center;
-}
-
 /* -------------Reviews------------------ */
 
 .review_container{
@@ -511,10 +507,6 @@ body.dark-theme{
     gap: 2.5rem;
 }
 
-.security_data{
-    text-align: center;
-}
-
 /* --------------Services----------------- */
 
 .services_container{
@@ -562,10 +554,6 @@ body.dark-theme{
 
 .contact_container{
     padding-bottom: 3rem;
-}
-
-.contact_description{
-    text-align: center;
 }
 
 .contact_content{
@@ -705,6 +693,20 @@ body.dark-theme{
     }
 }
 
+@media screen and (max-width: 576px) {
+    .about_data{
+        text-align: center;
+    }
+
+    .security_data{
+        text-align: center;
+    }
+
+    .contact_description{
+        text-align: center;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .svg_img{
         width: 100%;
@@ -723,7 +725,7 @@ body.dark-theme{
     .app_container,
     .contact_container,
     .footer_container{
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .home_img{
