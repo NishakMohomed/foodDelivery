@@ -515,6 +515,11 @@ body{
 
 /* --------------------Form----------------------- */
 
+#content main .table-data .addEmployee_form form .flash-warning{
+    font-size: var(--normal-font-size);
+    color: rgb(235, 57, 57);
+}
+
 #content main .table-data .productUpdate_form h6,
 #content main .table-data .employeeUpdate_form h6{
     background-color: #ffffff;
