@@ -413,6 +413,7 @@ body.dark-theme{
 
 .menu_img{
     width: 135px;
+    height: 100px;
     justify-self: center;
     margin-bottom: var(--mb-0-5);
 }
