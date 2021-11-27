@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 const User = require("../../model/user");
 const bcrypt = require('bcryptjs');
 
@@ -65,6 +67,34 @@ function employeeController(){
             });
 
             employee.save().then((user) => {
+
+                const output = `
+                    <h2>Hello ${ lname } Welcome</h2>
+                    <h3>This is your account credentials</h3>
+                    <p>email:    ${ email }</p>
+                    <p>password: ${ password }</p>`;
+
+                    let transport = nodemailer.createTransport({
+                        service: 'hotmail',
+                        auth: {
+                            user: process.env.EMAIL_ADDRESS,
+                            pass: process.env.EMAIL_PASS
+                        }
+                    });
+
+                    let mailOptions = {
+                        from: process.env.EMAIL_ADDRESS,
+                        to: email,
+                        subject: 'Account credentials',
+                        text: '',
+                        html: output
+                    };
+
+                    transport.sendMail(mailOptions, (error, info) => {
+                        if(error) {
+                            return console.log(error);
+                        }
+                    });
                 
                 return res.redirect('/admin/employees');
 
