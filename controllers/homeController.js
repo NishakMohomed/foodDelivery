@@ -16,6 +16,12 @@ function homeController() {
             //     console.log(menuItems)
             //     return res.render('home', {menuItems: menuItems})
             // });
+        },
+        mission(req, res) {
+            res.render('customer/mission');
+        },
+        faq(req, res) {
+            res.render('customer/faq');
         }
     }
 }

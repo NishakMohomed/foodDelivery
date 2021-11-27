@@ -40,6 +40,10 @@ function initRoutes(app) {
 
     app.post('/update-cart', cartController().update);
 
+    app.get('/mission', homeController().mission);
+
+    app.get('/faq', homeController().faq);
+
 
     //Customer route
 

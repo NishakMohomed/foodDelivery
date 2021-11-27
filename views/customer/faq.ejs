@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/faq.css">
     <title>&#127829; Deen Bakers</title>
 </head>
 <body>
@@ -16,78 +16,68 @@
         </nav>
     </header>
 
-    <div class="login-section">
+    <!-- FAQ section -->
+
+    <div class="mission-section">
         
-        <div class="login-section-top">
+        <div class="mission-section-top">
 
-            <div class="login-section-heading">
+            <div class="mission-section-heading">
 
-                <h3>Sign in or create an account</h3>
+                <h3>Frequently Asked Questions</h3>
 
             </div>
             
         </div>
 
-        <div class="login-section-content">
-
-            <div class="login-form">
-                <form action="/signin" method="POST">
-
-                    <% if(messages.error) { %>
-
-                        <span class="flash-warning"><%= messages.error %></span>
+        <div class="faq-section">
+                <div class="faq-section-content">
+                    <details>
+                        <summary>How do i get promo code or discount code?</summary>
+                        <p class="answer">
+                            Occasionally, we share promo code or discount code with
+                            our users. Be sure to follow us on social meadia
+                        </p>
+                    </details>
     
-                    <% } %>
-                   
-                    <fieldset>
-
-                        <span class="form-heading-1">
-                            Account Details
-                        </span><br>
-
-                        <div class="account-security-input">
-
-                            <input type="email" name="email" id="" placeholder="Enter your email"><br>
-                            <input type="password" name="password" id="" placeholder="Enter your password"><br>
-
-                        </div>
-
-                    </fieldset>
-                    
-                    <fieldset>
+                    <details>
+                        <summary>How do i sign up as Customer?</summary>
+                        <p class="answer">
+                            &nbsp;To sign up as Customer, follow the steps below.<br>
+                           &nbsp;&nbsp;&nbsp;1. visit the site.<br>
+                           &nbsp;&nbsp;&nbsp;2. Enter your Name, Email, Password and click create account button.
+                        </p>
+                    </details>
     
-                        <input type="checkbox" name="signin-checkbox" id="">
-                        <label for="signin-checkbox">Keep me signed in.</label><br>
-
-                    </fieldset>
-                    
-                    <div class="btn-signin">
-
-                        <input type="submit" value="Sign in">
-
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-
-        <div class="join-section">
-
-            <div class="join-section-content">
-
-                <h3>Join Deen's&reg;</h3>
-
-                <p>
-                    Join Deen bakers&reg; to Know about initiatives,announcements<br> and product offers,make online orders and more.
-                </p>
-
-                <a href="/register">Join now</a>
-            </div>
-            
+                    <details>
+                        <summary>How long is delivery time?</summary>
+                        <p class="answer">
+                            Delivery time varies by location and by time of day. However, you
+                            will be notified when your order is ready.
+                        </p>
+                    </details>
+    
+                    <details>
+                        <summary>How do i check order status?</summary>
+                        <p class="answer">
+                            &nbsp;To check order status, follow the steps below.<br>
+                            &nbsp;&nbsp;&nbsp;1.Sign in to the site using your account.<br>
+                            &nbsp;&nbsp;&nbsp;2.After sign in you will automatically taken out to the orders section.
+                        </p>
+                    </details>
+    
+                    <details>
+                        <summary>What payment methods can i use?</summary>
+                        <p class="answer">
+                            For payment on our site, we accept Credit cards or cash on delivery.
+                        </p>
+                    </details>
+    
+                </div>
         </div>
 
     </div>
+    
 
     <footer class="footer section">
         <div class="footer_container container grid">
