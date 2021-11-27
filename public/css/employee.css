@@ -38,6 +38,9 @@ li{
     --scroll-bar-color: hsl(var(--hue), 4%, 32%);
     --scroll-thumb-color: hsl(var(--hue), 4%, 24%);
     --text-color-light: hsl(var(--hue), 4%, 65%);
+
+    --profile-dropdown: #fff;
+    --profile-dropdown-link: hsl(var(--hue), 4%, 35%);
 }
 
 html{
@@ -215,7 +218,7 @@ body{
     justify-content: space-between;
     height: 56px;
     background: var(--light);
-    padding: 0 24px;
+    padding: 0 40px 0 24px;
     display: flex;
     align-items: center;
     grid-gap: 24px;
@@ -237,7 +240,7 @@ body{
     box-shadow: -20px -20px 0 var(--light);
 }
 
-#content nav a{
+#content nav .profile{
     color: var(--dark);
 }
 
@@ -261,6 +264,57 @@ body{
     object-fit: cover;
     border-radius: 50%;
 }
+
+/* -----------------Profile Dropdown--------- */
+
+.profile-dropdown{
+    position: absolute;
+    top: 80px;
+    right: 22px;
+    padding: 10px 20px;
+    background: var(--profile-dropdown);
+    width: 200px;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.profile-dropdown.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.profile-dropdown::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background: var(--profile-dropdown);
+    transform: rotate(45deg);
+}
+
+.profile-dropdown ul li{
+    list-style-type: none;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--profile-dropdown-link);
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+/* -------------------------------------------- */
 
 #content main{
     width: 100%;
@@ -491,7 +545,7 @@ body{
     width: 100%;
 }
 
-#content main .table-data .todo .todo-list li{
+#content main .table-data .todo .todo-list li a{
     width: 100%;
     margin-bottom: 16px;
     background: var(--grey);
@@ -500,6 +554,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#content main .table-data .todo .todo-list li a{
+    text-decoration: none;
+    color: #ffffff;
 }
 
 #content main .table-data .todo .todo-list li .bx{
@@ -518,7 +577,17 @@ body{
     margin-bottom: 0;
 }
 
-/* --------------------Add product----------------------- */
+/* --------------------Account settings----------------------- */
+
+.employeeUpdate_form form .flash-warning{
+    font-size: var(--normal-font-size);
+    color: rgb(235, 57, 57);
+}
+
+.employeeUpdate_form form .flash-success{
+    font-size: var(--normal-font-size);
+    color: rgb(9, 175, 9);
+}
 
 #content main .table-data .addProduct_form,
 #content main .table-data .addEmployee_form,
@@ -533,6 +602,7 @@ body{
 #content main .table-data .productUpdate_form form span{
     display: block;
     margin-bottom: 1px;
+    margin-top: 10px;
 }
 
 #content main .table-data .addProduct_form form input,
@@ -540,7 +610,8 @@ body{
 #content main .table-data .employeeUpdate_form form input,
 #content main .table-data .productUpdate_form form input,
 #content main .table-data .employeeUpdate_form form select,
-#content main .table-data .addEmployee_form form select{
+#content main .table-data .addEmployee_form form select,
+#content main .table-data .employeeUpdate_form form textarea{
     width: 100%;
     margin-bottom: 40px;
     padding: 10px;
@@ -553,6 +624,7 @@ body{
 #content main .table-data .addProduct_form form input:focus,
 #content main .table-data .addEmployee_form form input:focus,
 #content main .table-data .employeeUpdate_form form input:focus,
+#content main .table-data .employeeUpdate_form form textarea:focus,
 #content main .table-data .productUpdate_form form input:focus{
     border: 0.1rem solid var(--first-color);
 }
@@ -568,6 +640,10 @@ body{
     font-weight: 600;
     background: var(--first-color);
     cursor: pointer;
+}
+
+#content main .table-data .employeeUpdate_form form textarea::placeholder{
+    color: #ffffff;
 }
 
 

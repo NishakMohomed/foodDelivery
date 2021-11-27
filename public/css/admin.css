@@ -486,7 +486,7 @@ body{
     width: 100%;
 }
 
-#content main .table-data .todo .todo-list li{
+#content main .table-data .todo .todo-list li a{
     width: 100%;
     margin-bottom: 16px;
     background: var(--grey);
@@ -495,6 +495,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#content main .table-data .todo .todo-list li a{
+    text-decoration: none;
+    color: #ffffff;
 }
 
 #content main .table-data .todo .todo-list li .bx{
@@ -518,6 +523,11 @@ body{
 #content main .table-data .addEmployee_form form .flash-warning{
     font-size: var(--normal-font-size);
     color: rgb(235, 57, 57);
+}
+
+#content main .table-data .addEmployee_form form .flash-success{
+    font-size: var(--normal-font-size);
+    color: rgb(9, 175, 9);
 }
 
 #content main .table-data .productUpdate_form h6,
@@ -547,6 +557,7 @@ body{
 #content main .table-data .productUpdate_form form span{
     display: block;
     color: var(--dark-grey);
+    margin-top: 10px;
 }
 
 #content main .table-data .addProduct_form form input,

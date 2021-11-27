@@ -7,8 +7,10 @@ const adminController = require('../controllers/admin/adminController');
 const productController = require('../controllers/admin/productController');
 const analyticsController = require('../controllers/admin/analyticsController');
 const employeeControllerAdmin = require('../controllers/admin/employeeController');
+const settingsController = require('../controllers/admin/settingsController');
 const statusController = require('../controllers/employee/statusController');
 const employeeController = require('../controllers/employee/employeeController');
+const empSettingsController = require('../controllers/employee/empSettingsController');
 
 //Middlewares
 
@@ -80,6 +82,16 @@ function initRoutes(app) {
 
     app.get('/employees/employeeDelete/:id', employeePicUpload.single('image'), adminAuth, employeeControllerAdmin().delete);
 
+    app.get('/admin/settings', adminAuth, settingsController().index);
+
+    app.get('/settings/account/:id', adminAuth, settingsController().settings);
+
+    app.post('/adminSettings/update/:id', adminAuth, settingsController().accUpdate);
+
+    app.get('/settings/password/:id', adminAuth, settingsController().password);
+
+    app.post('/adminSettings/password/:id', adminAuth, settingsController().passwordUpdate);
+
 
     //Employee
 
@@ -88,6 +100,16 @@ function initRoutes(app) {
     app.get('/employee/orders', employeeAuth, employeeController().orders);
 
     app.post('/orders/status', employeeAuth, statusController().update);
+
+    app.get('/employee/settings', employeeAuth, empSettingsController().index);
+
+    app.get('/empSettings/account/:id', employeeAuth, empSettingsController().account);
+
+    app.get('/empsettings/password/:id', employeeAuth, empSettingsController().password);
+
+    app.post('/account/update/:id', employeeAuth, empSettingsController().accountUpdate);
+
+    app.post('/password/update/:id', employeeAuth, empSettingsController().passwordUpdate);
 }
 
 

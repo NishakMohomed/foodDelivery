@@ -27,7 +27,7 @@
                 </a>
             </li>
 
-            <li class="active">
+            <li>
                 <a href="/admin/orders">
                     <i class='bx bxs-cart' ></i>
                     <span class="text">Orders</span>
@@ -64,7 +64,7 @@
         </ul>
 
         <ul class="side-menu">
-            <li>
+            <li class="active">
                 <a href="/admin/settings">
                     <i class='bx bxs-cog'></i>
                     <span class="text">Settings</span>
@@ -87,19 +87,15 @@
     <section id="content">
         <nav>
             <i class='bx bx-menu'></i>
-
-            <a href="#" class="profile">
-                <img src="" alt="">
-            </a>
         </nav>
 
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Orders</h1>
+                    <h1>Settings</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Orders</a>
+                            <a href="#">Settings</a>
                         </li>
 
                         <li>
@@ -113,41 +109,61 @@
                 </div>
             </div>
 
+            <!-- <ul class="box-info">
+                <li>
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">
+                        <h3>1020</h3>
+                        <p>New Order</p>
+                    </span>
+                </li>
+
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+                        <h3>2834</h3>
+                        <p>Visitors</p>
+                    </span>
+                </li>
+
+                <li>
+                    <i class='bx bx-money'></i>
+                    <span class="text">
+                        <h3>Rs.2543</h3>
+                        <p>Total Sales</p>
+                    </span>
+                </li>
+            </ul> -->
+
             <div class="table-data">
-                <div class="order">
+
+                <div class="todo">
                     <div class="head">
-                        <h3>All Orders</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
+                        <h3>Links</h3>
                     </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Orders</th>
-                                <th>Customer</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>OrderType</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Placed At</th>
-                            </tr>
-                        </thead>
+                    <ul class="todo-list">
+                        <li class="completed">
+                            <a href="/settings/account/<%= user._id %>">
+                                <p>Account</p>
+                                <i class='bx bxs-chevron-right-circle'></i>
+                            </a>
+                        </li>
 
-                        <tbody id="orderTableBody">
-
-                        </tbody>
-                    </table>
+                        <li class="completed">
+                            <a href="/settings/password/<%= user._id %>">
+                                <p>Password</p>
+                                <i class='bx bxs-chevron-right-circle'></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </main>
     </section>
 
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="/js/admin.js"></script>
-    <script type="module" src="/js/addToOrderAdmin.js"></script>
     
 </body>
 </html>

@@ -43,20 +43,20 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#">
+                <a href="/employee/settings">
                     <i class='bx bxs-cog'></i>
                     <span class="text">Settings</span>
                 </a>
             </li>
 
-            <li>
+            <!-- <li>
                 <form id="logout" action="/logout" method="POST">
                     <a href="#" class="logout" onclick="document.getElementById('logout').submit()">
                         <i class='bx bxs-log-out'></i>
                         <span class="text">Logout</span>
                     </a>
                 </form>
-            </li>
+            </li> -->
         </ul>
     </section>
 
@@ -67,7 +67,22 @@
             <i class='bx bx-menu'></i>
 
             <a href="#" class="profile">
-                <img src="/images/employees/<%= user.image %>">
+                <img src="/images/employees/<%= user.image %>" onclick="dropdownToggle();">
+
+                <!-- Profile dropdown -->
+                <div class="profile-dropdown">
+                    <ul>
+                        <li><a href="/empSettings/account/<%= user._id %>">Account</a></li>
+
+                        <li><a href="/empSettings/password/<%= user._id %>">Password</a></li>
+
+                        <li>
+                            <form id="logout" action="/logout" method="POST">
+                                <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </a>
         </nav>
 

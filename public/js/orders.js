@@ -40,7 +40,7 @@ export const initOrders = function () {
             <td>${ order.address}</td>
             <td>${ order.phone}</td>
             <td>${ order.orderType}</td>
-            <td>LKR ${ (order.amount / 100).toFixed(2) }</td>
+            <td>LKR ${ (order.price / 100).toFixed(2) }</td>
             <td>
                 <form action="/orders/status" method="POST">
                     <input type="hidden" name="orderId" value="${ order._id}">

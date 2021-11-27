@@ -27,3 +27,10 @@ menuBar.addEventListener('click', function () {
 if(window.innerWidth < 768){
     sidebar.classList.add('hide');
 }
+
+
+//Profile dropdown
+function dropdownToggle(){
+    const toggleMenu = document.querySelector('.profile-dropdown');
+    toggleMenu.classList.toggle('active')
+}
