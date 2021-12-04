@@ -8,7 +8,10 @@ function adminController() {
                 if(req.xhr){
                     res.json(orders);
                 } else{
-                    res.render('admin/dashboard');
+                    Order.count({status: {$nin: ['delivered']}}, (err, docCount) => {
+                        res.render('admin/dashboard', {orderCount: docCount});
+                    });
+                    
                 }
                 
             });
