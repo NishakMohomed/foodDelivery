@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/wwr4uyi0wthwtk6l1eph1ygbjoz32ajwgibfvw2yrta5k7hu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="/css/admin.css">
     <title>&#127829; Deen Bakers</title>
 </head>
@@ -27,7 +28,7 @@
                 </a>
             </li>
 
-            <li class="active">
+            <li>
                 <a href="/admin/orders">
                     <i class='bx bxs-cart' ></i>
                     <span class="text">Orders</span>
@@ -48,7 +49,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="/admin/promotions">
                     <i class='bx bxs-offer'></i>
                     <span class="text">Promotions</span>
@@ -87,19 +88,15 @@
     <section id="content">
         <nav>
             <i class='bx bx-menu'></i>
-
-            <a href="#" class="profile">
-                <img src="" alt="">
-            </a>
         </nav>
 
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Orders</h1>
+                    <h1>Promotions</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Orders</a>
+                            <a href="#">Promotions</a>
                         </li>
 
                         <li>
@@ -107,47 +104,45 @@
                         </li>
 
                         <li>
-                            <a href="#" class="active">Home</a>
+                            <a href="#" class="active">Offer</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>All Orders</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
-                    </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Orders</th>
-                                <th>Customer</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>OrderType</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Placed At</th>
-                            </tr>
-                        </thead>
+                <div class="promo_form">
 
-                        <tbody id="orderTableBody">
+                    <form action="/promotions/send" method="post">
 
-                        </tbody>
-                    </table>
+                        <textarea id="mytextarea" name="promoDetails">
+                            Type here
+                        </textarea>
+    
+                        <input type="submit" value="Send">
+    
+                    </form>
+
                 </div>
+
             </div>
         </main>
     </section>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        tinymce.init({
+          selector: '#mytextarea',
+          branding: false,
+          height : 500,
+          width : 1200,
+          resize: false,
+          statusbar: false
+        });
+      </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="/js/admin.js"></script>
-    <script type="module" src="/js/addToOrderAdmin.js"></script>
     
 </body>
 </html>

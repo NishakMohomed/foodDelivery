@@ -71,14 +71,21 @@ function authController() {
             });
 
             //Hash the password
-            const hashedPassword = await bcrypt.hash(password, 10)
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            //Check the checkbox
+            let checkBox = false;
+            if(req.body.offer) {
+                checkBox = true;
+            }
 
             //Create a user
             const user = new User({
                 fname,
                 lname,
                 email,
-                password: hashedPassword
+                password: hashedPassword,
+                promo: checkBox
             });
 
             user.save().then((user) => {

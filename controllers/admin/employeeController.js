@@ -62,6 +62,7 @@ function employeeController(){
                 phone: req.body.phone,
                 address: req.body.address,
                 password: hashedPassword,
+                promo: false,
                 role: req.body.accType
                 
             });

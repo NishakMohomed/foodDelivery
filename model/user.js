@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     phone: {type:String, default: null},
     address: {type:String, default: null},
     password: { type: String, required: true, min: 8, max: 1024 },
+    promo: {type: Boolean, default: false},
     role: { type: String, default: 'customer' }
 }, { timestamps: true });
 

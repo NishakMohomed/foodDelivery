@@ -6,6 +6,7 @@ const orderController = require('../controllers/orderController');
 const adminController = require('../controllers/admin/adminController');
 const productController = require('../controllers/admin/productController');
 const analyticsController = require('../controllers/admin/analyticsController');
+const promoController = require('../controllers/admin/promoController');
 const employeeControllerAdmin = require('../controllers/admin/employeeController');
 const settingsController = require('../controllers/admin/settingsController');
 const statusController = require('../controllers/employee/statusController');
@@ -73,6 +74,10 @@ function initRoutes(app) {
     app.get('/products/productDelete/:id', adminAuth, productController().delete);
 
     app.get('/admin/analytics', adminAuth, analyticsController().index);
+
+    app.get('/admin/promotions', adminAuth, promoController().index);
+
+    app.post('/promotions/send', adminAuth, promoController().sendPromo);
 
     app.get('/admin/employees', adminAuth, employeeControllerAdmin().index);
 
