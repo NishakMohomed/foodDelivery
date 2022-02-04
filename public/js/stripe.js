@@ -3,11 +3,8 @@ import { CardWidget } from './CardWidget.js';
 
 export function initStripe() {
 
-    /************************************
-     * *****Stripe Publishable Key*******/
+    //Stripe publishable key
     var stripe = Stripe('');
-    //************************************
-
 
     let card = null;
 
