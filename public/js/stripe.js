@@ -3,32 +3,13 @@ import { CardWidget } from './CardWidget.js';
 
 export function initStripe() {
 
-    var stripe = Stripe('pk_test_51JsUG9Bl4OLn10Gz4H0TuxaBxMFGeQp6ed0dwYKso7yd9OfdaMMSEgFQZRJVQyiF6FtgZhTAXglMbqDEIE3NL3DC00sYDKpsXu');
+    /************************************
+     * *****Stripe Publishable Key*******/
+    var stripe = Stripe('');
+    //************************************
+
 
     let card = null;
-
-    // function mountWidget() {
-    //     const elements = stripe.elements();
-
-    //     let style = {
-    //         base: {
-    //             color: '#cecdca',
-    //             fontFamily: '"Poppins", sans-serif',
-    //             fontSmoothing: 'antialiased',
-    //             fontSize: '1rem',
-    //             '::placeholder': {
-    //             color: '#aab7c4'
-    //             }
-    //         },
-    //         invalid: {
-    //             color: '#fa755a',
-    //             iconColor: '#fa755a'
-    //         }
-    //     };
-    
-    //     card = elements.create('card', { style, hidePostalCode: true });
-    //     card.mount('#card-element');
-    // }
 
     const paymentType = document.querySelector('#paymentType');
 
@@ -41,7 +22,6 @@ export function initStripe() {
 
         if(e.target.value === 'card') {
             //Display card widget
-            //mountWidget();
             card = new CardWidget(stripe);
             card.mount();
         } else {
@@ -73,14 +53,6 @@ export function initStripe() {
             const token = await card.createToken();
             formObject.stripeToken = token.id;
             placeOrder(formObject);
-
-            // // Verify card
-            // stripe.createToken(card).then((result) => {
-            //     formObject.stripeToken = result.token.id;
-            //     placeOrder(formObject);
-            // }).catch((err) => {
-            //     console.log(err);
-            // });
             
         });
     }
