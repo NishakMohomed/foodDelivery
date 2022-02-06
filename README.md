@@ -1,5 +1,7 @@
 # foodDelivery
-This is a food ordering and restaurant management web application developed using mongoDB,expressJS and some other libraries. ![GitHub last commit](https://img.shields.io/github/last-commit/NishakMohomed/foodDelivery)
+This is a food ordering and restaurant management web application developed using mongoDB,expressJS and some other libraries.
+
+![GitHub last commit](https://img.shields.io/github/last-commit/NishakMohomed/foodDelivery)
 
 ![](public/images/readmeImages/home.png)
 
