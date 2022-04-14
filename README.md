@@ -1,29 +1,29 @@
 # foodDelivery ![GitHub last commit](https://img.shields.io/github/last-commit/NishakMohomed/foodDelivery)
-This is a food ordering and restaurant management web application developed using mongoDB,expressJS and some other libraries.
+This is a web-based system that allows online food ordering and restaurant management. developed using mongoDB,expressJS and some other libraries.
 
 ![](public/images/readmeImages/home.png)
 
 ![](public/images/readmeImages/dashboard.png)
 
 # Features
-- Customers can be able to make orders via online.
-- Customers are able to choose the delivery methods.
-- Customers are able to write  reviews and ratings for the food via online.
-- Customers are able to login and register to the system.
-- Customers can be able to track order status.
+- Customers can make orders via online.
+- Customers can choose the delivery methods.
+- Customers can write  reviews and ratings for the food via online.
+- Customers can login and register to the system.
+- Customers can track order status.
 
 - Cashiers can provide customer support via online.
-- Cashiers can be able to track orders using the system.
-- Cashiers can be able to manage orders using the system.
+- Cashiers can track orders using the system.
+- Cashiers can manage orders using the system.
 
-- Admin can be able to provide real time offers for their customers.
-- Admin can be able to generate business analytics and reports using the system.
-- Admin can be able to control the whole system using the admin dashboard.
-- Admin can be able to manage restaurants using the system.
+- Admin can provide real time offers for their customers.
+- Admin can generate business analytics and reports using the system.
+- Admin can control the whole system using the admin dashboard.
+- Admin can manage restaurants using the system.
  
 
 # Installation
-In this application i used stripe for payments feature in order to use this app, 
+This system has a online payment feature which has been built using stripe so in order to use this , 
 
 1. Clone the project
 
